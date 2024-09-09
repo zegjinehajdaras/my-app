@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+import Navbar from './components/Navbar';
+import './App.css';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import ArtistList from './components/ArtistList';
+import ArtistPage from './components/ArtistPage';
+import artists from '../src/db'
+import AlbumPage from './components/AlbumPage';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+ <BrowserRouter>
+ <div>
+  <Navbar/>
+<Routes>
+<Route path="/" element={<ArtistList artists={artists} />} />
+<Route path="/artist/:id" element={<ArtistPage />} />
+<Route path='/album/:id' element={<AlbumPage/>}/>
+</Routes>
+
+ </div>
+ 
+ </BrowserRouter>
   );
 }
 
