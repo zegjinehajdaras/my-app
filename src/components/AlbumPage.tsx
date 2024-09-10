@@ -10,17 +10,18 @@ const AlbumPage = () => {
   let foundArtist: Artist | undefined = undefined;
 
   if (id) {
-   
-    foundArtist = artists.find(artist =>
-      artist.albums.find(album => album.albumId === id)
+    foundArtist = artists.find((artist) =>
+      artist.albums.find((album) => album.albumId === id)
     );
 
- 
-    foundAlbum = foundArtist?.albums.find(album => album.albumId === id);
+    foundAlbum = foundArtist?.albums.find((album) => album.albumId === id);
   }
   return (
     <div className="container-arist">
-      <img src={require(`../images/albums/${foundAlbum?.cover}.jpg`)} alt={foundAlbum?.title}/>
+      <img
+        src={require(`../images/albums/${foundAlbum?.cover}.jpg`)}
+        alt={foundAlbum?.title}
+      />
       <h1>Title:{foundAlbum?.title}</h1>
       <h2>Year:{foundAlbum?.year}</h2>
       <h2>Price:{foundAlbum?.price}$</h2>
